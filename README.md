@@ -1,3 +1,11 @@
+# Hey! Thanks for taking the time to check out my Candidate Project!
+
+This was pretty fun. Had a great time refreshing my Angular knowledge. I look forward to your feedback!
+
+## Note
+
+I implemented a service for maintaining search data. Otherwise things are as-is.
+
 # Frontend Candidate Project
 
 ## Setup
