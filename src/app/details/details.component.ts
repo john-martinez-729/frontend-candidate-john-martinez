@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { transformQuotes, Quote } from "../utils/quote-helpers";
 
 @Component({
   selector: "app-details",
@@ -24,16 +25,7 @@ export class DetailsComponent implements OnInit {
     this.http.get<any>(`http://localhost:5001/details/${id}`).subscribe({
       next: (res) => {
         this.person = res;
-        this.quotes = [];
-
-        Object.entries(res.quotes).forEach(([likes, texts]) => {
-          (texts as string[]).forEach((text) => {
-            this.quotes.push({ likes: Number(likes), text });
-          });
-        });
-        this.quotes.sort(
-          (a, b) => b.likes - a.likes || a.text.localeCompare(b.text)
-        );
+        this.quotes = transformQuotes(res.quotes);
       },
       error: () => {
         this.error = "Error loading details";
