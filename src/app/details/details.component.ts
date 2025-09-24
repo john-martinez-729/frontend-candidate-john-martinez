@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { transformQuotes, Quote } from "../utils/quote-helpers";
+import { transformQuotes } from "../utils/quote-helpers";
 
 @Component({
   selector: "app-details",
