@@ -1,6 +1,24 @@
-<div>
-    Implement details in this component.
+<a (click)="back()" class="back-link">Back to search results</a>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="person">
+  <div class="details-container">
+    <h2 class="details-name">{{ person.name }}</h2>
+    <p *ngIf="person.favorite_color" class="details-color">
+      Favorite Color:
+      <span class="details-color-text">{{ person.favorite_color }}</span>
+    </p>
+  </div>
+
+  <div *ngIf="quotes.length === 0 && !error" class="message">
+    <div>No quotes found</div>
+  </div>
+
+  <div class="quotes-container">
+    <div *ngFor="let q of quotes" class="quote">
+      <p class="quote-text">"{{ q.text || "No quote available" }}"</p>
+      <p class="quote-likes">{{ q.likes || 0 }} Likes</p>
+    </div>
+  </div>
 </div>
-<p>
-    Implement search in the <a [routerLink]="['/']">search component</a>
-</p>

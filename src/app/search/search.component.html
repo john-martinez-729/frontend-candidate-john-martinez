@@ -1,6 +1,38 @@
-<p>
-    Implement search in this component
-</p>
-<p>
-    Implement details in the <a [routerLink]="['/details/123']">details component</a>
-</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="search-form">
+  <input
+    type="text"
+    formControlName="name"
+    placeholder="Search by name"
+    class="search-input"
+  />
+
+  <select formControlName="color" class="search-select">
+    <option value="">Select a color</option>
+    <option value="blue">Blue</option>
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+  </select>
+
+  <button type="submit" class="search-button">Search</button>
+</form>
+
+<div *ngIf="!hasSearched && !error" class="message">Search for people</div>
+
+<div *ngIf="hasSearched && results.length === 0 && !error" class="message">
+  No results found
+</div>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="results.length > 0" class="results-container">
+  <h2 class="results-title">Search Results</h2>
+  <div class="results-grid">
+    <div
+      *ngFor="let person of results"
+      (click)="goToDetails(person.id)"
+      class="result-card"
+    >
+      <span class="result-text">{{ person.name }}</span>
+    </div>
+  </div>
+</div>

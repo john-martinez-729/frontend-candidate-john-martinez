@@ -1,0 +1,42 @@
+.back-link {
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.back-link:hover {
+  color: darkblue;
+}
+
+.error {
+  text-align: center;
+  margin-top: 2rem;
+  color: red;
+  font-weight: bold;
+}
+
+.details-name {
+  font-size: 2rem;
+}
+
+.details-color {
+  color: grey;
+  margin-bottom: 1.5rem;
+}
+
+.details-color-text {
+  text-transform: capitalize;
+}
+
+.quote {
+  border-bottom: 1px solid lightgrey;
+}
+
+.quote-text {
+  font-weight: bold;
+}
+
+.quote-likes {
+  color: grey;
+}
